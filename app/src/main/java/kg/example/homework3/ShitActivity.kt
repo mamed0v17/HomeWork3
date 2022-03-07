@@ -12,14 +12,17 @@ class ShitActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityShitBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val list = intent.getStringArrayListExtra(MainActivity.SHIT)
+       saveImage()
+
+
+    }
+    private fun saveImage(){
+       val list = intent.getStringArrayListExtra(MainActivity.SHIT)
         binding.apply {
             recyclerViewTwo.adapter = list?.let { MyAdapter(it) }
             ivExit.setOnClickListener {
                 finish()
             }
         }
-
-
     }
 }
